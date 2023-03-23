@@ -1,0 +1,4 @@
+target 'TesteLoja' do
+  pod 'Alamofire'
+  pod 'URLImage'
+end
