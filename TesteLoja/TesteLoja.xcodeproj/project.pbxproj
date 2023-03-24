@@ -15,7 +15,6 @@
 		301F3E7B29CA9D7F008B0C6A /* TesteLojaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301F3E7A29CA9D7F008B0C6A /* TesteLojaUITests.swift */; };
 		301F3E7D29CA9D7F008B0C6A /* TesteLojaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301F3E7C29CA9D7F008B0C6A /* TesteLojaUITestsLaunchTests.swift */; };
 		301F3E8A29CB452A008B0C6A /* List.json in Resources */ = {isa = PBXBuildFile; fileRef = 301F3E8929CB452A008B0C6A /* List.json */; };
-		301F3E8C29CB46A6008B0C6A /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301F3E8B29CB46A6008B0C6A /* ImageLoader.swift */; };
 		B29E80BF54B919A96CAE28EB /* libPods-TesteLoja.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD2F3BA08A464B2C91A67D2E /* libPods-TesteLoja.a */; };
 /* End PBXBuildFile section */
 
@@ -48,7 +47,6 @@
 		301F3E7A29CA9D7F008B0C6A /* TesteLojaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesteLojaUITests.swift; sourceTree = "<group>"; };
 		301F3E7C29CA9D7F008B0C6A /* TesteLojaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesteLojaUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		301F3E8929CB452A008B0C6A /* List.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = List.json; sourceTree = "<group>"; };
-		301F3E8B29CB46A6008B0C6A /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		54AA3EF6845276EC4D9EC964 /* Pods-TesteLoja.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TesteLoja.release.xcconfig"; path = "Target Support Files/Pods-TesteLoja/Pods-TesteLoja.release.xcconfig"; sourceTree = "<group>"; };
 		AD2F3BA08A464B2C91A67D2E /* libPods-TesteLoja.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TesteLoja.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C840236D486716B453BC3DBB /* Pods-TesteLoja.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TesteLoja.debug.xcconfig"; path = "Target Support Files/Pods-TesteLoja/Pods-TesteLoja.debug.xcconfig"; sourceTree = "<group>"; };
@@ -109,7 +107,6 @@
 				301F3E6129CA9D7B008B0C6A /* ContentView.swift */,
 				301F3E6329CA9D7F008B0C6A /* Assets.xcassets */,
 				301F3E6529CA9D7F008B0C6A /* Preview Content */,
-				301F3E8B29CB46A6008B0C6A /* ImageLoader.swift */,
 			);
 			path = TesteLoja;
 			sourceTree = "<group>";
@@ -154,7 +151,6 @@
 				C840236D486716B453BC3DBB /* Pods-TesteLoja.debug.xcconfig */,
 				54AA3EF6845276EC4D9EC964 /* Pods-TesteLoja.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -317,7 +313,6 @@
 			files = (
 				301F3E6229CA9D7B008B0C6A /* ContentView.swift in Sources */,
 				301F3E6029CA9D7B008B0C6A /* TesteLojaApp.swift in Sources */,
-				301F3E8C29CB46A6008B0C6A /* ImageLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

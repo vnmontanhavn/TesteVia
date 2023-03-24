@@ -1,0 +1,6 @@
+module Pods_TesteVarejo {
+  umbrella header "Pods-TesteVarejo-umbrella.h"
+
+  export *
+  module * { export * }
+}
