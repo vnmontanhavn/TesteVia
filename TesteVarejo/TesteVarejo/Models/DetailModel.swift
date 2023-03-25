@@ -36,7 +36,7 @@ struct DetailModel: Decodable {
         self.categories = []
         self.moreInfo = []
         self.brand = DetailBrandModel(id: 0, name: "")
-        self.style = DetailStyleModel(skus: [], pattern: StylePatternModel(sku: 0, name: "", disponibility: false, marketPlace: PatternMarketPlaceModel(greaterPrice: 0, minorPrice: 0, standerdShop: MarketPlaceShopModel(id: 0, name: "", price: 0, fastWithdrawal: false, onlineShop: false, elected: false), featuredStores: []), price: PatternPriceModel(paymentPlan: "", parcelValue: 0, maxParcelQtd: 0, yearValue: 0, discountPercentage: 0, discountPaymentWay: PricePaymentWayModel(price: 0, hasDiscount: false, percentageDiscount: 0)), images: [], services: []))
+        self.style = DetailStyleModel(skus: [], pattern: StylePatternModel(sku: 0, name: "", disponibility: false, marketPlace: PatternMarketPlaceModel(greaterPrice: 0, minorPrice: 0, standerdShop: MarketPlaceShopModel(id: 0, name: "", price: 0, fastWithdrawal: false, onlineShop: false, elected: false), featuredStores: []), price: PatternPriceModel(paymentPlan: "", parcelValue: 0, maxParcelQtd: 0, yearValue: 0, lastPrice: 0, discountPercentage: 0, discountPaymentWay: PricePaymentWayModel(price: 0, hasDiscount: false, percentageDiscount: 0)), images: [], services: []))
     }
     
     init( id: String,
@@ -98,6 +98,10 @@ struct DetailBrandModel {
 struct DetailStyleModel {
     let skus: [Int]
     let pattern: StylePatternModel
+    private enum CodingKeys: String, CodingKey {
+        case skus = "skus"
+        case pattern = "padrao"
+    }
 }
 
 struct StylePatternModel {
@@ -108,6 +112,16 @@ struct StylePatternModel {
     let price: PatternPriceModel
     let images:[PatternImagesModel]
     let services: [PatternServiceModel]
+    private enum CodingKeys: String, CodingKey {
+        case sku = "sku"
+        case name = "nome"
+        case disponibility = "disponivel"
+        case marketPlace = "marketplace"
+        case price = "preco"
+        case images = "imagens"
+        case services = "servicos"
+    }
+    
 }
 
 struct PatternServiceModel {
@@ -117,6 +131,14 @@ struct PatternServiceModel {
     let price: Double
     let installment: String
     let type: String
+    private enum CodingKeys: String, CodingKey {
+        case name = "nome"
+        case sku = "sku"
+        case idShop = "idLojista"
+        case price = "preco"
+        case installment = "parcelamento"
+        case type = "tipo"
+    }
 }
 
 struct PatternImagesModel {
@@ -125,6 +147,13 @@ struct PatternImagesModel {
     let hight: Float
     let width: Float
     let url: String
+    private enum CodingKeys: String, CodingKey {
+        case id = "id"
+        case name = "nome"
+        case hight = "altura"
+        case width = "largura"
+        case url = "url"
+    }
 }
 
 struct PatternPriceModel {
@@ -132,15 +161,29 @@ struct PatternPriceModel {
     let parcelValue: Double
     let maxParcelQtd: Int
     let yearValue: Double
+    let lastPrice: Double
     let discountPercentage: Int
     let discountPaymentWay: PricePaymentWayModel
-
+    private enum CodingKeys: String, CodingKey {
+        case paymentPlan = "planoPagamento"
+        case parcelValue = "valorParcela"
+        case maxParcelQtd = "quantidadeMaximaParcelas"
+        case yearValue = "precoAtual"
+        case lastPrice = "precoAnterior"
+        case discountPercentage = "porcentagemDesconto"
+        case discountPaymentWay = "descontoFormaPagamento"
+    }
 }
 
 struct PricePaymentWayModel {
     let price: Double
     let hasDiscount: Bool
     let percentageDiscount: Double
+    private enum CodingKeys: String, CodingKey {
+        case price = "preco"
+        case hasDiscount = "possuiDesconto"
+        case percentageDiscount = "porcentagemDesconto"
+    }
 }
 
 struct PatternMarketPlaceModel {
@@ -148,7 +191,12 @@ struct PatternMarketPlaceModel {
     let minorPrice: Double
     let standerdShop: MarketPlaceShopModel
     let featuredStores: [MarketPlaceShopModel]
-
+    private enum CodingKeys: String, CodingKey {
+        case greaterPrice = "maiorPreco"
+        case minorPrice = "menorPreco"
+        case standerdShop = "lojistaPadrao"
+        case featuredStores = "lojistasEmDestaque"
+    }
 }
 
 struct MarketPlaceShopModel {
@@ -158,4 +206,12 @@ struct MarketPlaceShopModel {
     let fastWithdrawal: Bool
     let onlineShop: Bool
     let elected: Bool
+    private enum CodingKeys: String, CodingKey {
+        case id = "id"
+        case name = "nome"
+        case price = "preco"
+        case fastWithdrawal = "retiraRapido"
+        case onlineShop = "compraOnline"
+        case elected = "eleito"
+    }
 }
