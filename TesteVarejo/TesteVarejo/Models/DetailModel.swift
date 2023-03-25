@@ -9,7 +9,7 @@ import Foundation
 
 
 struct DetailModel: Decodable {
-    let id: String
+    let id: Int
     let name: String
     let description: String
     let withdraw: Bool
@@ -28,37 +28,9 @@ struct DetailModel: Decodable {
         case brand = "marca"
         case style = "modelo"
     }
-    init(from decoder: Decoder) throws {
-        self.id = ""
-        self.name = ""
-        self.description = ""
-        self.withdraw = false
-        self.categories = []
-        self.moreInfo = []
-        self.brand = DetailBrandModel(id: 0, name: "")
-        self.style = DetailStyleModel(skus: [], pattern: StylePatternModel(sku: 0, name: "", disponibility: false, marketPlace: PatternMarketPlaceModel(greaterPrice: 0, minorPrice: 0, standerdShop: MarketPlaceShopModel(id: 0, name: "", price: 0, fastWithdrawal: false, onlineShop: false, elected: false), featuredStores: []), price: PatternPriceModel(paymentPlan: "", parcelValue: 0, maxParcelQtd: 0, yearValue: 0, lastPrice: 0, discountPercentage: 0, discountPaymentWay: PricePaymentWayModel(price: 0, hasDiscount: false, percentageDiscount: 0)), images: [], services: []))
-    }
-    
-    init( id: String,
-     name: String,
-     description: String,
-     withdraw: Bool,
-     categories: [DetailCategoryModel],
-     moreInfo: [DetailMoreInfoModel],
-     brand: DetailBrandModel,
-     style: DetailStyleModel) {
-        self.id = id
-        self.name = name
-        self.description = description
-        self.withdraw = withdraw
-        self.categories = categories
-        self.moreInfo = moreInfo
-        self.brand = brand
-        self.style = style
-    }
 }
 
-struct DetailCategoryModel {
+struct DetailCategoryModel: Decodable {
     let id: Int
     let description: String
     private enum CodingKeys: String, CodingKey {
@@ -67,7 +39,7 @@ struct DetailCategoryModel {
     }
 }
 
-struct DetailMoreInfoModel {
+struct DetailMoreInfoModel: Decodable {
     let descripition: String
     let values: [MoreInfoValueModel]
 
@@ -77,16 +49,17 @@ struct DetailMoreInfoModel {
     }
 }
 
-struct MoreInfoValueModel {
+struct MoreInfoValueModel: Decodable {
     let name: String
     let value: String
+    
     private enum CodingKeys: String, CodingKey {
         case name = "nome"
-        case values = "valor"
+        case value = "valor"
     }
 }
 
-struct DetailBrandModel {
+struct DetailBrandModel: Decodable {
     let id: Int
     let name: String
     private enum CodingKeys: String, CodingKey {
@@ -95,7 +68,7 @@ struct DetailBrandModel {
     }
 }
 
-struct DetailStyleModel {
+struct DetailStyleModel: Decodable {
     let skus: [Int]
     let pattern: StylePatternModel
     private enum CodingKeys: String, CodingKey {
@@ -104,7 +77,7 @@ struct DetailStyleModel {
     }
 }
 
-struct StylePatternModel {
+struct StylePatternModel: Decodable {
     let sku: Int
     let name: String
     let disponibility: Bool
@@ -124,7 +97,7 @@ struct StylePatternModel {
     
 }
 
-struct PatternServiceModel {
+struct PatternServiceModel: Decodable {
     let name: String
     let sku: Int
     let idShop: Int
@@ -141,7 +114,7 @@ struct PatternServiceModel {
     }
 }
 
-struct PatternImagesModel {
+struct PatternImagesModel: Decodable {
     let id: Int
     let name: String
     let hight: Float
@@ -156,7 +129,7 @@ struct PatternImagesModel {
     }
 }
 
-struct PatternPriceModel {
+struct PatternPriceModel: Decodable {
     let paymentPlan: String
     let parcelValue: Double
     let maxParcelQtd: Int
@@ -175,7 +148,7 @@ struct PatternPriceModel {
     }
 }
 
-struct PricePaymentWayModel {
+struct PricePaymentWayModel: Decodable {
     let price: Double
     let hasDiscount: Bool
     let percentageDiscount: Double
@@ -186,7 +159,7 @@ struct PricePaymentWayModel {
     }
 }
 
-struct PatternMarketPlaceModel {
+struct PatternMarketPlaceModel: Decodable {
     let greaterPrice: Double
     let minorPrice: Double
     let standerdShop: MarketPlaceShopModel
@@ -199,7 +172,7 @@ struct PatternMarketPlaceModel {
     }
 }
 
-struct MarketPlaceShopModel {
+struct MarketPlaceShopModel: Decodable {
     let id: Int
     let name: String
     let price: Double

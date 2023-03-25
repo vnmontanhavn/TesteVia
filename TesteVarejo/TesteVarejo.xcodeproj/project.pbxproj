@@ -20,6 +20,7 @@
 		301F3ED129CC8E67008B0C6A /* CarrosselFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301F3ED029CC8E67008B0C6A /* CarrosselFlowLayout.swift */; };
 		301F3ED329CE1712008B0C6A /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301F3ED229CE1712008B0C6A /* DetailModel.swift */; };
 		301F3ED629CE1753008B0C6A /* detail.json in Resources */ = {isa = PBXBuildFile; fileRef = 301F3ED529CE1753008B0C6A /* detail.json */; };
+		306C4FC429CF5A7300D0FCF0 /* DetailCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306C4FC329CF5A7300D0FCF0 /* DetailCaller.swift */; };
 		E67C26AB0B4DFCE1FB2B442E /* libPods-TesteVarejo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C1DE7A464C03C5EF129C3B8 /* libPods-TesteVarejo.a */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,7 @@
 		301F3ED229CE1712008B0C6A /* DetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
 		301F3ED529CE1753008B0C6A /* detail.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = detail.json; sourceTree = "<group>"; };
 		301F3ED729CE298A008B0C6A /* libSDWebImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSDWebImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		306C4FC329CF5A7300D0FCF0 /* DetailCaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCaller.swift; sourceTree = "<group>"; };
 		6C1DE7A464C03C5EF129C3B8 /* libPods-TesteVarejo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TesteVarejo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAD293A15BA4CCB4CC343996 /* Pods-TesteVarejo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TesteVarejo.debug.xcconfig"; path = "Target Support Files/Pods-TesteVarejo/Pods-TesteVarejo.debug.xcconfig"; sourceTree = "<group>"; };
 		DF41DBDF10308DBDF0A02DC7 /* Pods-TesteVarejo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TesteVarejo.release.xcconfig"; path = "Target Support Files/Pods-TesteVarejo/Pods-TesteVarejo.release.xcconfig"; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 		301F3EC929CC8BC1008B0C6A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				306C4FC229CF5A4600D0FCF0 /* Callers */,
 				301F3E9D29CC8B83008B0C6A /* ViewController.swift */,
 			);
 			path = Controllers;
@@ -193,6 +196,14 @@
 				301F3ED529CE1753008B0C6A /* detail.json */,
 			);
 			path = jsons;
+			sourceTree = "<group>";
+		};
+		306C4FC229CF5A4600D0FCF0 /* Callers */ = {
+			isa = PBXGroup;
+			children = (
+				306C4FC329CF5A7300D0FCF0 /* DetailCaller.swift */,
+			);
+			path = Callers;
 			sourceTree = "<group>";
 		};
 		7A83FE377271EDF8517ECCC6 /* Frameworks */ = {
@@ -371,6 +382,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				306C4FC429CF5A7300D0FCF0 /* DetailCaller.swift in Sources */,
 				301F3ECE29CC8C57008B0C6A /* Carrossel.swift in Sources */,
 				301F3E9E29CC8B83008B0C6A /* ViewController.swift in Sources */,
 				301F3E9A29CC8B83008B0C6A /* AppDelegate.swift in Sources */,
