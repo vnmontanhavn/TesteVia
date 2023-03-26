@@ -133,7 +133,7 @@ struct PatternPriceModel: Decodable {
     let paymentPlan: String
     let parcelValue: Double
     let maxParcelQtd: Int
-    let yearValue: Double
+    let nowPryce: Double
     let lastPrice: Double
     let discountPercentage: Int
     let discountPaymentWay: PricePaymentWayModel
@@ -141,7 +141,7 @@ struct PatternPriceModel: Decodable {
         case paymentPlan = "planoPagamento"
         case parcelValue = "valorParcela"
         case maxParcelQtd = "quantidadeMaximaParcelas"
-        case yearValue = "precoAtual"
+        case nowPryce = "precoAtual"
         case lastPrice = "precoAnterior"
         case discountPercentage = "porcentagemDesconto"
         case discountPaymentWay = "descontoFormaPagamento"

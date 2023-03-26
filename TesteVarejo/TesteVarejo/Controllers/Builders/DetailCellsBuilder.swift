@@ -17,6 +17,7 @@ class DetailCellsBuilder {
         let imagesData = imageURLs(imageModelArray: detailModel.style.pattern.images)
         cells.append(buildCarouselCell(tableview: tableview, urls: imagesData))
         cells.append(buildTitleCell(tableview: tableview, data: detailModel))
+        cells.append(buildPriceCell(tableView: tableview, data: detailModel.style.pattern.price))
         return cells
     }
     
@@ -31,6 +32,13 @@ class DetailCellsBuilder {
         let cell = TitleCell()
         cell.setup(title: data.name, subtitle: data.id)
         tableview.register(TitleCell.self, forCellReuseIdentifier: cell.getIdentifier())
+        return cell
+    }
+    
+    func buildPriceCell(tableView: UITableView, data: PatternPriceModel) -> DetailCellProtocol {
+        let cell = PriceCell()
+        cell.setup(price: data.nowPryce, oldPrice: data.lastPrice, parcelas: data.maxParcelQtd, parcelaValue: data.parcelValue, discount: data.discountPercentage)
+        tableView.register(PriceCell.self, forCellReuseIdentifier: cell.getIdentifier())
         return cell
     }
     
