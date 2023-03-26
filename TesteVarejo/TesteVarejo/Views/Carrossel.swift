@@ -15,10 +15,12 @@ class Carrossel: UIView {
             frame: .zero,
             collectionViewLayout: CarrosselFlowLayout()
         )
+    var selectedIndex: Int = 0
+    private var timer: Timer?
     
-    public init(frame: CGRect, urls: [URL]) {
+    public init(urls: [URL]) {
             self.urls = urls
-            super.init(frame: frame)
+        super.init(frame: .zero)
             setupCarrossel()
         }
 
@@ -37,7 +39,7 @@ class Carrossel: UIView {
         collectionView.backgroundColor = .clear
                 collectionView.delegate = self
                 collectionView.dataSource = self
-                collectionView.isUserInteractionEnabled = false
+                collectionView.isUserInteractionEnabled = true
                 collectionView.isPagingEnabled = true
                 
                 collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -55,7 +57,6 @@ class Carrossel: UIView {
 }
 
 extension Carrossel: UICollectionViewDelegate {
-    
 }
 
 extension Carrossel: UICollectionViewDataSource {
@@ -66,10 +67,9 @@ extension Carrossel: UICollectionViewDataSource {
    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        let url = self.urls[indexPath.item]
         let imageView: UIImageView = UIImageView(frame: .zero )
                 imageView.translatesAutoresizingMaskIntoConstraints = false
-                imageView.contentMode = .center
+                imageView.contentMode = .scaleAspectFit
                 imageView.sd_setImage(with: urls[indexPath.row], placeholderImage: UIImage(named: "placeholder"))
                 cell.contentView.addSubview(imageView)
                 NSLayoutConstraint.activate([
@@ -79,7 +79,6 @@ extension Carrossel: UICollectionViewDataSource {
                     imageView.leadingAnchor.constraint(equalTo: cell.leadingAnchor)
                 ])
                 return cell
-        return UICollectionViewCell()
     }
     
 }
