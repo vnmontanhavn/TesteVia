@@ -15,6 +15,7 @@ class Carrossel: UIView {
             frame: .zero,
             collectionViewLayout: CarrosselFlowLayout()
         )
+    private var dots = UIPageControl()
     var selectedIndex: Int = 0
     private var timer: Timer?
     
@@ -37,23 +38,36 @@ class Carrossel: UIView {
         }
     func setupCarrossel() {
         collectionView.backgroundColor = .clear
-                collectionView.delegate = self
-                collectionView.dataSource = self
-                collectionView.isUserInteractionEnabled = true
-                collectionView.isPagingEnabled = true
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.isUserInteractionEnabled = true
+        collectionView.isPagingEnabled = true
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        dots.translatesAutoresizingMaskIntoConstraints = false
+        dots.pageIndicatorTintColor = .gray
+        dots.currentPageIndicatorTintColor = .black
+        addSubview(collectionView)
+        addSubview(dots)
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
                 
-                collectionView.translatesAutoresizingMaskIntoConstraints = false
-                addSubview(collectionView)
-                
-                collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-                
-                NSLayoutConstraint.activate([
-                    collectionView.topAnchor.constraint(equalTo: topAnchor),
-                    collectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
-                    collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
-                    collectionView.leadingAnchor.constraint(equalTo: leadingAnchor)
-                ])
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: topAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -26),
+            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            dots.bottomAnchor.constraint(equalTo: bottomAnchor),
+            dots.centerXAnchor.constraint(equalTo: centerXAnchor)
+        ])
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        dots.currentPage = Int(
+            (collectionView.contentOffset.x / collectionView.frame.width)
+                .rounded(.toNearestOrAwayFromZero)
+            )
+    }
+    
 }
 
 extension Carrossel: UICollectionViewDelegate {
@@ -61,6 +75,7 @@ extension Carrossel: UICollectionViewDelegate {
 
 extension Carrossel: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        dots.numberOfPages = self.urls.count
         return self.urls.count
     }
     
