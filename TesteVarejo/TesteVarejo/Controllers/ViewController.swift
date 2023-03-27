@@ -28,6 +28,10 @@ class ViewController: UIViewController {
         }
     }
     
+    func setupNavigationController() {
+        self.navigationController?.navigationBar.backgroundColor = UIColor(hex: 0x023866)
+    }
+    
     func configConstraints() {
         detailTableView.translatesAutoresizingMaskIntoConstraints = false
         detailTableView.topAnchor.constraint(equalTo:view.topAnchor).isActive = true

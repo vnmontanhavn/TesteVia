@@ -25,6 +25,7 @@
 		306C4FCC29D085B000D0FCF0 /* DetailCellsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306C4FCB29D085B000D0FCF0 /* DetailCellsBuilder.swift */; };
 		306C4FCF29D0B8E600D0FCF0 /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306C4FCE29D0B8E600D0FCF0 /* TitleCell.swift */; };
 		306C4FD129D0D00800D0FCF0 /* PriceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306C4FD029D0D00800D0FCF0 /* PriceCell.swift */; };
+		306C4FD429D1155400D0FCF0 /* TesteCollorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306C4FD329D1155400D0FCF0 /* TesteCollorHandler.swift */; };
 		E67C26AB0B4DFCE1FB2B442E /* libPods-TesteVarejo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C1DE7A464C03C5EF129C3B8 /* libPods-TesteVarejo.a */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,7 @@
 		306C4FCB29D085B000D0FCF0 /* DetailCellsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCellsBuilder.swift; sourceTree = "<group>"; };
 		306C4FCE29D0B8E600D0FCF0 /* TitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCell.swift; sourceTree = "<group>"; };
 		306C4FD029D0D00800D0FCF0 /* PriceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceCell.swift; sourceTree = "<group>"; };
+		306C4FD329D1155400D0FCF0 /* TesteCollorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesteCollorHandler.swift; sourceTree = "<group>"; };
 		6C1DE7A464C03C5EF129C3B8 /* libPods-TesteVarejo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TesteVarejo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAD293A15BA4CCB4CC343996 /* Pods-TesteVarejo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TesteVarejo.debug.xcconfig"; path = "Target Support Files/Pods-TesteVarejo/Pods-TesteVarejo.debug.xcconfig"; sourceTree = "<group>"; };
 		DF41DBDF10308DBDF0A02DC7 /* Pods-TesteVarejo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TesteVarejo.release.xcconfig"; path = "Target Support Files/Pods-TesteVarejo/Pods-TesteVarejo.release.xcconfig"; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 		301F3EC929CC8BC1008B0C6A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				306C4FD229D1151E00D0FCF0 /* Handler */,
 				306C4FCD29D085B700D0FCF0 /* Builders */,
 				306C4FC229CF5A4600D0FCF0 /* Callers */,
 				301F3E9D29CC8B83008B0C6A /* ViewController.swift */,
@@ -240,6 +243,14 @@
 				306C4FCB29D085B000D0FCF0 /* DetailCellsBuilder.swift */,
 			);
 			path = Builders;
+			sourceTree = "<group>";
+		};
+		306C4FD229D1151E00D0FCF0 /* Handler */ = {
+			isa = PBXGroup;
+			children = (
+				306C4FD329D1155400D0FCF0 /* TesteCollorHandler.swift */,
+			);
+			path = Handler;
 			sourceTree = "<group>";
 		};
 		7A83FE377271EDF8517ECCC6 /* Frameworks */ = {
@@ -419,6 +430,7 @@
 			files = (
 				306C4FC829D07E7800D0FCF0 /* DetailCellProtocol.swift in Sources */,
 				306C4FD129D0D00800D0FCF0 /* PriceCell.swift in Sources */,
+				306C4FD429D1155400D0FCF0 /* TesteCollorHandler.swift in Sources */,
 				306C4FCF29D0B8E600D0FCF0 /* TitleCell.swift in Sources */,
 				306C4FC429CF5A7300D0FCF0 /* DetailCaller.swift in Sources */,
 				301F3ECE29CC8C57008B0C6A /* Carrossel.swift in Sources */,

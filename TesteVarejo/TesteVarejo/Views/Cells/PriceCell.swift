@@ -15,12 +15,13 @@ class PriceCell: UITableViewCell {
     let discountLabel = UILabel()
     
     func setup(price: Double, oldPrice: Double, parcelas: Int, parcelaValue: Double, discount:Int) {
-        priceLabel.text = "R$ \(price)"
-        let attString =  NSMutableAttributedString(string: "R$ \(oldPrice)")
+        
+        priceLabel.text = "R$ \(moneyValueString(value: price))"
+        let attString =  NSMutableAttributedString(string: "R$ \(moneyValueString(value: oldPrice))")
         attString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: NSUnderlineStyle.single.rawValue, range: NSMakeRange(0,attString.length))
         oldPriceLabel.attributedText = attString
-        parceladoLabel.text = parcelas > 1 ? "ou em até \(parcelas)x de \(parcelaValue)" : ""
-        discountLabel.text = "\(discount)%"
+        parceladoLabel.text = parcelas > 1 ? "ou em até \(parcelas)x de \(moneyValueString(value: parcelaValue))" : ""
+        discountLabel.text = "- \(discount)%"
         self.contentView.addSubview(priceLabel)
         self.contentView.addSubview(oldPriceLabel)
         self.contentView.addSubview(parceladoLabel)
@@ -33,10 +34,13 @@ class PriceCell: UITableViewCell {
         oldPriceLabel.font = UIFont(name: "Helvetica", size: 14)
         oldPriceLabel.textColor = .gray
         priceLabel.font = UIFont(name: "Helvetica-Bold", size: 18)
-        priceLabel.textColor = .blue
+        priceLabel.textColor = UIColor(hex: 0x277BBE)
         parceladoLabel.font = UIFont(name: "Helvetica", size: 10)
         discountLabel.font = UIFont(name: "Helvetica-Bold", size: 12)
-        discountLabel.backgroundColor = .yellow
+        discountLabel.backgroundColor = UIColor(hex: 0xFFB416)
+        discountLabel.layer.cornerRadius = 10
+        discountLabel.layer.masksToBounds = true
+        discountLabel.textAlignment = .center
     }
     
     func setupConstraints() {
@@ -52,8 +56,12 @@ class PriceCell: UITableViewCell {
         parceladoLabel.leftAnchor.constraint(equalTo: priceLabel.leftAnchor).isActive = true
         discountLabel.bottomAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: -3).isActive = true
         discountLabel.leftAnchor.constraint(equalTo: priceLabel.rightAnchor, constant: 5).isActive = true
-        
-        
+        discountLabel.widthAnchor.constraint(equalToConstant: 45).isActive = true
+        discountLabel.heightAnchor.constraint(equalToConstant: 17).isActive = true
+    }
+    
+    func moneyValueString(value: Double) -> String {
+        return String(format: "%.2f", value)
     }
 }
 
