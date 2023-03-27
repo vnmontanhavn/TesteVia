@@ -8,11 +8,13 @@
 import Foundation
 import UIKit
 
+//protocolo unificado para as celulas, é usado pela tableview e pelo builder
 protocol DetailCellProtocol {
     func height() -> CGFloat
     func getCell() -> UITableViewCell
     func getIdentifier() -> String
 }
+//implementaçoes que são defaut e ultilitarias são fetas aqui
 extension DetailCellProtocol {
     func getCell() -> UITableViewCell {
         if let cell = self as? UITableViewCell {

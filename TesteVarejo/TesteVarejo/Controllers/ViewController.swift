@@ -8,8 +8,9 @@
 import UIKit
 
 class ViewController: UIViewController {
-    let detailTableView:UITableView = UITableView() // view
-    var cells: [DetailCellProtocol] = []
+    private let detailTableView:UITableView = UITableView() // view
+    private var cells: [DetailCellProtocol] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white

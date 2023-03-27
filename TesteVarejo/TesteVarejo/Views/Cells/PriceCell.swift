@@ -9,11 +9,12 @@ import Foundation
 import UIKit
 
 class PriceCell: UITableViewCell {
-    let priceLabel = UILabel()
-    let oldPriceLabel = UILabel()
-    let parceladoLabel = UILabel()
-    let discountLabel = UILabel()
+    private let priceLabel = UILabel()
+    private let oldPriceLabel = UILabel()
+    private let parceladoLabel = UILabel()
+    private let discountLabel = UILabel()
     
+    //setup da celula
     func setup(price: Double, oldPrice: Double, parcelas: Int, parcelaValue: Double, discount:Int) {
         
         priceLabel.text = "R$ \(moneyValueString(value: price))"
@@ -29,7 +30,7 @@ class PriceCell: UITableViewCell {
         setupLabel()
         setupConstraints()
     }
-    
+    //configura as labels da celula
     func setupLabel() {
         oldPriceLabel.font = UIFont(name: "Helvetica", size: 14)
         oldPriceLabel.textColor = .gray
@@ -42,7 +43,7 @@ class PriceCell: UITableViewCell {
         discountLabel.layer.masksToBounds = true
         discountLabel.textAlignment = .center
     }
-    
+    //configura as constraints
     func setupConstraints() {
         oldPriceLabel.translatesAutoresizingMaskIntoConstraints = false
         priceLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -59,7 +60,7 @@ class PriceCell: UITableViewCell {
         discountLabel.widthAnchor.constraint(equalToConstant: 45).isActive = true
         discountLabel.heightAnchor.constraint(equalToConstant: 17).isActive = true
     }
-    
+    //converte o double para uma string em formato amigavel paa valores
     func moneyValueString(value: Double) -> String {
         return String(format: "%.2f", value)
     }

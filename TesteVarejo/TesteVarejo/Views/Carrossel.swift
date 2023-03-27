@@ -16,26 +16,19 @@ class Carrossel: UIView {
             collectionViewLayout: CarrosselFlowLayout()
         )
     private var dots = UIPageControl()
-    var selectedIndex: Int = 0
-    private var timer: Timer?
-    
+    //recebe as urls das imagens
     public init(urls: [URL]) {
             self.urls = urls
         super.init(frame: .zero)
             setupCarrossel()
         }
 
-        // init from code
-        override init(frame: CGRect) {
-            super.init(frame: frame)
-            setupCarrossel()
-        }
-
-        // init from xib or storyboard
+        // caso fosse inicializado por uma Xib/StoryBoard
         required init?(coder aDecoder: NSCoder) {
             super.init(coder: aDecoder)
             setupCarrossel()
         }
+    //configura a view
     func setupCarrossel() {
         collectionView.backgroundColor = .clear
         collectionView.delegate = self
@@ -50,7 +43,10 @@ class Carrossel: UIView {
         addSubview(collectionView)
         addSubview(dots)
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-                
+        setupConstraints()
+    }
+    //configura as constraints
+    func setupConstraints() {
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: topAnchor),
             collectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -26),
@@ -60,7 +56,7 @@ class Carrossel: UIView {
             dots.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
-    
+    //faz o controle do page indicator
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         dots.currentPage = Int(
             (collectionView.contentOffset.x / collectionView.frame.width)
@@ -69,17 +65,15 @@ class Carrossel: UIView {
     }
     
 }
-
-extension Carrossel: UICollectionViewDelegate {
-}
-
-extension Carrossel: UICollectionViewDataSource {
+///implementações
+//implementa o datasource da collection
+extension Carrossel: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         dots.numberOfPages = self.urls.count
         return self.urls.count
     }
-    
-   
+    //implementa cellForItem
+    //por não ter celulas complexas mantive esse identifier hardcoded
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
         let imageView: UIImageView = UIImageView(frame: .zero )

@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 
 class TitleCell: UITableViewCell {
-    var titleLabel = UILabel()
-    var subTitleLabel = UILabel()
+    private var titleLabel = UILabel()
+    private var subTitleLabel = UILabel()
     
     func setup( title: String, subtitle: Int) {
         titleLabel.text = title
