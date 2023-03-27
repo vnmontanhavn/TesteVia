@@ -11,7 +11,7 @@ import UIKit
 class ProductGalleryViewController: UIViewController {
     private lazy var collectionView = UICollectionView(
             frame: .zero,
-            collectionViewLayout: UICollectionViewFlowLayout()
+            collectionViewLayout: ProductsFlowLayout()
         )
     private var cells: [ProductCellProtocol] = []
     private var model: ProductsModel?
@@ -23,6 +23,7 @@ class ProductGalleryViewController: UIViewController {
         collectionView.register(ProductCollectionCell.self, forCellWithReuseIdentifier: ProductCollectionCell().getIdentifier())
         setupConstraints()
         setupNavigationController()
+        title = "Smart TVs"
     }
     override func viewDidAppear(_ animated: Bool) {
         ProductsCaller().getProducts { response in

@@ -19,6 +19,7 @@ class ProductCollectionCell: UICollectionViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         imageView.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholder"))
+        rankView.frame = CGRect(x: 0, y: 0, width: 200, height: 15)
         rankView.value = ranking
         nameLabel.text = name
         priceLabel.text = "R$ " + moneyValueString(value: price)
@@ -31,10 +32,10 @@ class ProductCollectionCell: UICollectionViewCell {
     }
     
     func setupView() {
-        nameLabel.font = UIFont(name: "Helvetica-Bold", size: 12)
+        nameLabel.font = UIFont(name: "Helvetica-Bold", size: 10)
         nameLabel.numberOfLines = 3
         rankView.tintColor = UIColor(hex: 0xFFB416)
-        priceLabel.font = UIFont(name: "Helvetica-Bold", size: 14)
+        priceLabel.font = UIFont(name: "Helvetica-Bold", size: 12)
         priceLabel.textColor = UIColor(hex: 0x277BBE)
     }
     
