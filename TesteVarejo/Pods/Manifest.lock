@@ -3,20 +3,24 @@ PODS:
   - SDWebImage (5.15.5):
     - SDWebImage/Core (= 5.15.5)
   - SDWebImage/Core (5.15.5)
+  - SwiftyStarRatingView (1.0.4)
 
 DEPENDENCIES:
   - Alamofire
   - SDWebImage
+  - SwiftyStarRatingView
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - SDWebImage
+    - SwiftyStarRatingView
 
 SPEC CHECKSUMS:
   Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
   SDWebImage: fd7e1a22f00303e058058278639bf6196ee431fe
+  SwiftyStarRatingView: a2b0057700e0adeb8e7442c55d99cb53b531d2f4
 
-PODFILE CHECKSUM: dbacbccf68e8f7161eccec859be761e7e28f20bf
+PODFILE CHECKSUM: add43bc73da0ddff8634b04f71cd3e955d7855ea
 
 COCOAPODS: 1.12.0
